@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/jamemackson/ember-cli-kloudless-fileexplorer.png?label=ready&title=Ready)](https://waffle.io/jamemackson/ember-cli-kloudless-fileexplorer)
 # Ember-cli-filepicker
 
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
