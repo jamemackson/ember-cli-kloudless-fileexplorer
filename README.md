@@ -1,4 +1,39 @@
-# Ember-cli-filepicker
+# Ember-cli-kloudless-fileexplorer
+[![Stories in Ready](https://badge.waffle.io/jamemackson/ember-cli-kloudless-fileexplorer.png?label=ready&title=Ready)](https://waffle.io/jamemackson/ember-cli-kloudless-fileexplorer)
+
+
+###Example usage
+
+```handlebars
+
+  {{ember-fileexplorer
+    //options
+    chooserOptions=chooserOptions
+    saverOptions=saverOptions
+
+    //events
+    onSuccess='onSuccess'
+    onCancel='onCancel'
+    onError='onError'
+    onOpen
+    onClose
+    onSelected
+    onStartFileUpload
+    onFinishFileUpload
+
+    //event button info
+    chooserElementSelector
+    saverElementSelector
+
+    // pickerOptions=pickerOptions
+    multiple=true
+    onSelection='fileSelected'
+    onClose='onClose'
+    onError='onError'
+    accept=".jpg,.jpeg,.gif,.png"
+  }}
+
+```
 
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
 [![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker) 

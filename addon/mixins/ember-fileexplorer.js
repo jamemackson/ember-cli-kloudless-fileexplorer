@@ -7,9 +7,9 @@ var PICK_METHOD_NAME = 'pick',
 	PICK_AND_STORE_METHOD_NAME = 'pickAndStore';
 
 export default Ember.Mixin.create({
-	injectFilepickerService: function() {
+	injectFileexplorerService: function() {
 		if (!isServiceInjectionSupported) {
-			this.set('filepicker', this.container.lookup('service:filepicker'));
+			this.set('fileexplorer', this.container.lookup('service:fileexplorer'));
 		}
 	}.on('init'),
 	handleSelection: function(data) {
@@ -31,14 +31,14 @@ export default Ember.Mixin.create({
 	pickerOptions: {},
 	storeOptions: null,
 	multiple: false,
-	filepicker: Ember.inject ? Ember.inject.service() : null,
+	fileexplorer: Ember.inject ? Ember.inject.service() : null,
 	openFilepicker: Ember.on('didInsertElement', function() {
 		Ember.run.scheduleOnce('afterRender', this, function() {
-			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
+			this.get('fileexplorer.promise').then(Ember.run.bind(this, function(fileexplorer) {
 				var pickerOptions, storeOptions,
 					options = this.get('options'),
 					usePickAndStore,
-					filepickerMethod,
+					fileexplorerMethod,
 					args = [];
 
 				if (options) {
@@ -82,7 +82,7 @@ export default Ember.Mixin.create({
 					}
 				}
 
-				filepicker[filepickerMethod].apply(filepicker, args);
+				fileexplorer[filepickerMethod].apply(fileexplorer, args);
 			}));
 		});
 	})

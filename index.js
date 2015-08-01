@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-filepicker'
+  name: 'ember-cli-kloudless-fileexplorer'
 };

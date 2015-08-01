@@ -1,7 +1,7 @@
 {
-  "name": "ember-cli-filepicker",
+  "name": "ember-cli-kloudless-fileexplorer",
   "version": "0.1.95",
-  "description": "Ember cli file picker using filepicker.io",
+  "description": "Ember cli file explorer using kloudless.com",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,9 +11,9 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/DudaDev/ember-cli-filepicker.git",
+  "repository": "https://github.com/jamemackson/ember-cli-kloudless-fileexplorer.git",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.12.0"
   },
   "author": "",
   "license": "MIT",
@@ -37,8 +37,10 @@
   },
   "keywords": [
     "ember-addon",
-    "filepicker.io",
-    "filepicker"
+    "kloudless.com",
+    "kloudless",
+    "file-explorer",
+    "fileexplorer"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
