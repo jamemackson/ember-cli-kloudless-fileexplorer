@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 var isServiceInjectionSupported = Ember.inject && Ember.inject.service;
 
-var PICK_METHOD_NAME = 'pick',
-	PICK_MULTIPLE_METHOD_NAME = 'pickMultiple',
-	PICK_AND_STORE_METHOD_NAME = 'pickAndStore';
+var PICK_METHOD_NAME = 'choose',
+	PICK_MULTIPLE_METHOD_NAME = 'choose',
+	PICK_AND_STORE_METHOD_NAME = 'choose';
 
 export default Ember.Mixin.create({
 	injectFileexplorerService: function() {
@@ -32,10 +32,13 @@ export default Ember.Mixin.create({
 	storeOptions: null,
 	multiple: false,
 	fileexplorer: Ember.inject ? Ember.inject.service() : null,
-	openFilepicker: Ember.on('didInsertElement', function() {
+	openFileexplorer: Ember.on('didInsertElement', function() {
 		Ember.run.scheduleOnce('afterRender', this, function() {
+      console.log('fileexplorer :: running afterRender');
 			this.get('fileexplorer.promise').then(Ember.run.bind(this, function(fileexplorer) {
-				var pickerOptions, storeOptions,
+        console.log('fileexplorer :: fileexplorer.promise succeeded.');
+
+        var pickerOptions, storeOptions,
 					options = this.get('options'),
 					usePickAndStore,
 					fileexplorerMethod,
@@ -63,7 +66,7 @@ export default Ember.Mixin.create({
 							multiple: true
 						}, pickerOptions);
 					}
-					filepickerMethod = PICK_AND_STORE_METHOD_NAME;
+          fileexplorerMethod = PICK_AND_STORE_METHOD_NAME;
 					args.push(pickerOptions);
 					args.push(storeOptions);
 
@@ -74,15 +77,15 @@ export default Ember.Mixin.create({
 				args.push(Ember.run.bind(this, this.handleSelection));
 				args.push(Ember.run.bind(this, this.handleError));
 
-				if (!filepickerMethod) {
+				if (!fileexplorerMethod) {
 					if (this.get('multiple')) {
-						filepickerMethod = PICK_MULTIPLE_METHOD_NAME;
+            fileexplorerMethod = PICK_MULTIPLE_METHOD_NAME;
 					} else {
-						filepickerMethod = PICK_METHOD_NAME;
+            fileexplorerMethod = PICK_METHOD_NAME;
 					}
 				}
 
-				fileexplorer[filepickerMethod].apply(fileexplorer, args);
+				fileexplorer[fileexplorerMethod].apply(fileexplorer, args);
 			}));
 		});
 	})

@@ -17,10 +17,16 @@ export default (Ember.Service || Ember.Object).extend({
 
 		injectScript(this.get('scriptURL'))
 			.then(Ember.run.bind(this, function() {
+        console.debug('initalizing fileexplorer');
+        var key = this.get('key');
+        if (!key || !key.length) {
+          console.error('you must specify a api_id to use ember-cli-kloudless-fileexplorer!');
+          throw 'you must specify a api_id to use ember-cli-kloudless-fileexplorer!';
+        }
 
         var fileexplorer = window.Kloudless.explorer({
           // Explorer Initialization options here.
-          app_id: this.get('key'),
+          app_id: key,
           multiselect: true,
           computer: true,
           link: true,
